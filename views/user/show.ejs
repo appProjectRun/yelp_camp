@@ -1,0 +1,68 @@
+<%- include ("../partials/header") %>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <h3>
+                    <%= user.firstName +" "+ user.lastName %></h3>
+            </div>  
+
+            <div class=" thumbnail">
+                        <img src="<%= user.avatar %>" alt="">
+
+                        <div class="caption">
+                            <h4><a href="mailto:<%= user.email %>">
+                                    <%=user.email%>
+                                </a></h4>
+                        </div>
+
+                        <div>
+                            <a class="btn btn-primary" href="/follow/<%= user._id %>">Follow</a>
+                        </div>
+
+            </div>
+
+            <div>
+                orem ipsum dolor sit amet, consectetur adipiscing elit. Proin in justo a ipsum interdum aliquam quis
+                pulvinar odio. Proin quis odio vel metus malesuada mattis. Nam nec ligula quis nunc vehicula sagittis.
+                Phasellus consectetur imperdiet nisl ut semper. Ut in libero ac dui aliquam tincidunt. Vivamus molestie
+                ut
+                odio id consequat. Etiam accumsan purus tristique massa faucibus, pellentesque vehicula nunc gravida.
+                Curabitur purus turpis, hendrerit eu urna sit amet, tempus cursus arcu. Donec in scelerisque ante, at
+                eleifend metus.
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="container">
+                <h3>
+                    <%= user.firstName%>'s campgrounds.
+                </h3>
+                <ul>
+                    <% campground.forEach(function(eachCampground){ %>
+                        <li> <a href="/campgrounds/<%=eachCampground._id%>">
+                                <%= eachCampground.name %>
+                            </a> </li>
+                        <% }); %>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <h3>
+                    <%= user.firstName%>'s follower.
+                </h3>
+                <ul>
+                    <% user.followers.forEach(function(eachFollower){ %>
+                        <li>                            
+                                <%= eachFollower.username %>  <%= eachFollower.lastName %>                          
+                        </li>
+                        <% }); %>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include ("../partials/footer") %>

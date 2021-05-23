@@ -1,0 +1,14 @@
+<%- include ("../partials/header") %>
+    <h1>you reach notification page</h1>
+
+    <% allNotifications.forEach(function(eachNotification){ %>
+        <ul>
+            <li>
+                <a href="/campgrounds/<%= eachNotification.campgroundId %>">
+                    <%= eachNotification.username %> created campground.
+                </a>
+            </li>
+        </ul>
+        <% }); %>
+
+<%- include ("../partials/footer") %>
