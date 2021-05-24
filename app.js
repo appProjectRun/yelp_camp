@@ -60,6 +60,6 @@ app.use("/", indexRoute);
 app.use("/campgrounds", campgroundRoute);
 app.use("/campgrounds/:id/comments", commentRoute);
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, process.env.IP, function () {
     console.log("*********************Server Yelpcamp v13 nodemon has started*****************************");
 });
